@@ -1,0 +1,85 @@
+{
+  "name": "react-express-boilerplate",
+  "version": "1.0.0",
+  "description": "boilerplate for a full stack react app",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev:server": "nodemon server/index.js",
+    "dev:client": "NODE_ENV=development webpack-dev-server",
+    "build:client": "NODE_ENV=production webpack",
+    "build:client:watch": "NODE_ENV=development webpack --watch",
+    "start:all": "npm run build:client && npm run start",
+    "test:server": "jest server/tests/",
+    "test:client": "jest client/",
+    "test": "jest",
+    "test:cov": "jest --coverage"
+  },
+  "pre-commit": [
+    "build:client",
+    "test:cov"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LawEKS/react-express-boilerplate.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "webpack"
+  ],
+  "author": "LawEKS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LawEKS/react-express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/LawEKS/react-express-boilerplate#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "sanitize.css": "^5.0.0",
+    "styled-components": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-styled-components": "^1.5.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "nock": "^9.3.3",
+    "nodemon": "^1.17.5",
+    "pre-commit": "^1.2.2",
+    "react-testing-library": "^4.0.1",
+    "style-loader": "^0.21.0",
+    "supertest": "^3.1.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/client/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/client/__mocks__/fileMock.js"
+    }
+  }
+}
